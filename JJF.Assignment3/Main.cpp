@@ -44,9 +44,13 @@ int main()
 	string tempAuthor;
 	int tempYear;
 	int tempPage;
-	char YN = 'n'; //Yes or no to save changes
-	cout << "Enter the ID of the book you would like to update (1-" << NUM_BOOKS << "): ";
-	cin >> ID;
+	char YN = 'a'; //Yes or no to save changes
+	
+	while (ID < 1 || ID > NUM_BOOKS)
+	{
+		cout << "Enter the ID of the book you would like to update (1-" << NUM_BOOKS << "): ";
+			cin >> ID;
+	}
 	cout << ID << ". " << books[ID - 1].Title << "\n";
 	cout << "Enter the Author (" << books[ID - 1].Author << "): ";
 	cin >> tempAuthor;
@@ -57,11 +61,11 @@ int main()
 	
 	//Ensures user enters y or n
 
-	/*while (YN != 'y' || YN != 'n')
+	while (YN != 'y' && YN != 'n')
 	{
-		cout << "\nSave these changes? (Y/N): ";
+		cout << "Save these changes? (Y/N): ";
 		cin >> YN;
-	}*/
+	}
 
 	(void)_getch();
 	return 0;
